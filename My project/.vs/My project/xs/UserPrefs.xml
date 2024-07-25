@@ -1,0 +1,20 @@
+﻿<Properties StartupConfiguration="{32C3BDE6-E125-3128-82C1-25D0441455A3}|">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/battle/battleUnitPlayer.cs">
+    <Files>
+      <File FileName="Assets/Scripts/GameController.cs" Line="25" Column="36" />
+      <File FileName="Assets/Scripts/Roam/playerMovement.cs" Line="19" Column="39" />
+      <File FileName="Assets/Scripts/battle/BattleScript.cs" Line="245" Column="2" />
+      <File FileName="Assets/Scripts/battle/battleUnitPlayer.cs" Line="16" Column="17" />
+      <File FileName="Assets/Scripts/battle/battleHud.cs" />
+      <File FileName="Assets/Scripts/partyMembers/partymember.cs" />
+      <File FileName="Assets/Scripts/partyMembers/partymemberBase.cs" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="ee745e80-0d2d-4ef2-a132-b001147768c8" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>

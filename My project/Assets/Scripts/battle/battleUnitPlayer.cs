@@ -24,9 +24,9 @@ public class battleUnitPlayer : MonoBehaviour
     }
 
 
-    public void Setup()
+    public void Setup(partymember partymember)
     {
-        partyMember = new partymember(_base, level);
+        partyMember = partymember;
         if (isPlayerUnit)
         {
             GetComponent<Image>().sprite = partyMember.Base.FrontSprite;

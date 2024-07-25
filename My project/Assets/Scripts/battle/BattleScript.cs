@@ -24,17 +24,22 @@ public class BattleScript : MonoBehaviour
     int currentSkill;
     bool defending;
 
-    public void StartBattle()
+    Party playerParty;
+    partymember wildMob;
+
+    public void StartBattle(Party playerParty, partymember wildMob)
     {
+        this.playerParty = playerParty;
+        this.wildMob = wildMob;
         StartCoroutine(setupBattle());
     }
     public IEnumerator setupBattle()
     {
         defending = false;
-        playerUnit1.Setup();
+        playerUnit1.Setup(playerParty.GetHealthyPartymember());
         playerHud1.setData(playerUnit1.partyMember);
 
-        enemyUnit1.Setup();
+        enemyUnit1.Setup(wildMob);
         enemyHud1.setData(enemyUnit1.partyMember);
 
         dialogueBox.setSkillNames(playerUnit1.partyMember.skills);
@@ -74,13 +79,17 @@ public class BattleScript : MonoBehaviour
         {
             currentSkill = 0;
             yield return dialogueBox.typeDialogue($"* {playerUnit1.partyMember.Base.Name} attacks! ");
+            StartCoroutine(spRegen());
         }
         else
         {
             yield return dialogueBox.typeDialogue($"{skill.Base.Dialogue}\n* {playerUnit1.partyMember.Base.Name} used {skill.Base.Name}! ");
         }
         yield return new WaitForSeconds(1f);
-        
+
+        playerUnit1.partyMember.spRed(skill.Base.Sp);
+        yield return playerHud1.updateMP();
+        playerHud1.updateSpText();
 
         var damageDetails = enemyUnit1.partyMember.takeDamage(skill, playerUnit1.partyMember, false); //deal damage to the enemy unit, passing dmgdetails
 
@@ -154,8 +163,19 @@ public class BattleScript : MonoBehaviour
         defending = true;
         yield return dialogueBox.typeDialogue($"* {playerUnit1.partyMember.Base.Name} is bracing for impact...");
         yield return new WaitForSeconds(.3f);
+        StartCoroutine(spRegen());
+        yield return new WaitForSeconds(1f);
         StartCoroutine(enemyMove());
 
+    }
+    IEnumerator spRegen()
+    {
+        state = battleStates.busy;
+        playerUnit1.partyMember.regenSP();
+        yield return dialogueBox.typeDialogue("You got some SP back!");
+        yield return new WaitForSeconds(.25f);
+        yield return playerHud1.updateMP();
+        playerHud1.updateSpText();
     }
     IEnumerator showDamageDetails(damageDetails damageDetails)
     {
@@ -263,6 +283,11 @@ public class BattleScript : MonoBehaviour
         dialogueBox.updateSkillSelection(currentSkill, playerUnit1.partyMember.skills[currentSkill]);
         if(Input.GetKeyDown(KeyCode.Z) && state == battleStates.playerMove)
         {
+            var move = playerUnit1.partyMember.skills[currentSkill];
+            if(playerUnit1.partyMember.SP < move.Base.Sp)
+            {
+                return;
+            }
             dialogueBox.enableSkillSelector(false);
             dialogueBox.enableDialogueText(true);
             StartCoroutine(performPlayerSkill());

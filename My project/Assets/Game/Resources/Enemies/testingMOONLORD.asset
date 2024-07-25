@@ -12,16 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 351f8252d83e9ec45a2e447373a07f8b, type: 3}
   m_Name: testingMOONLORD
   m_EditorClassIdentifier: 
-  memberName: PERFECTDUMMY
+  memberName: <color=red>PERFECTDUMMY</color>
   description: omgogmgogmgog
   type: 0
   frontSprite: {fileID: 2208107485783828877, guid: 03d2820ec7bd5e94d8f0a6d7470a60bb, type: 3}
   enemySprite: {fileID: 2208107485783828877, guid: 03d2820ec7bd5e94d8f0a6d7470a60bb, type: 3}
   animationController: {fileID: 9100000, guid: eaf9dc1e89d364ae3b3f43bb273a6f42, type: 2}
-  maxHp: 100
+  maxHp: 400
   maxSp: 999999
-  attack: 15
-  defense: 0
+  attack: 20
+  defense: 2
   determination: 20
   trait1: 0
   trait2: 0

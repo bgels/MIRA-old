@@ -22,7 +22,10 @@ public class GameController : MonoBehaviour
         battleSystem.gameObject.SetActive(true);
         worldCamera.gameObject.SetActive(false);
 
-        battleSystem.StartBattle();
+        var playerParty = playerController.GetComponent<Party>();
+        var wildMob = FindObjectOfType<MapArea>().GetComponent<MapArea>().getRandomWildMob();
+
+        battleSystem.StartBattle(playerParty, wildMob);
         
     }
     void EndBattle(bool won)

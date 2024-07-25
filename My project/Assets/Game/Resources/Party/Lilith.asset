@@ -19,9 +19,9 @@ MonoBehaviour:
   enemySprite: {fileID: 0}
   animationController: {fileID: 0}
   maxHp: 20
-  maxSp: 20
+  maxSp: 15
   attack: 16
-  defense: 9
+  defense: 10
   determination: 15
   trait1: 6
   trait2: 1

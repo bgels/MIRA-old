@@ -43,11 +43,25 @@ public class battleHud : MonoBehaviour
         }
     }
 
+
+    public IEnumerator updateMP()
+    {
+        yield return mpBar1.setMpSmooth((float)entity.SP / entity.MaxSp);
+        print(entity.SP + " MP " + entity.MaxSp);
+
+        int dmg = entity.MaxSp - entity.SP;
+    }
+
+
     public void updateHpText()
     {
         hpBar1.setHpText(entity.HP, entity.MaxHp);
     }
 
+    public void updateSpText()
+    {
+        mpBar1.setMpText(entity.SP, entity.MaxSp);
+    }
 
 
 }

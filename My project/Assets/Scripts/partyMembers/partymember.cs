@@ -2,18 +2,35 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class partymember : MonoBehaviour
+[System.Serializable]
+public class partymember
 {
-    public partymemberBase Base { get; set; }
-    public int Level { get; set; }
+    [SerializeField] partymemberBase _base;
+    [SerializeField] int level;
+
+    public partymemberBase Base
+    {
+        get
+        {
+            return _base;
+        }
+    }
+
+    public int Level
+    {
+        get
+        {
+            return level;
+        }
+    }
+
     public int HP { get; set; }
     public int SP { get; set; }
     public List<skill> skills { get; set; }
     
-    public partymember(partymemberBase mBase, int mLevel) // member base/level
+    public void Init() // member base/level
     {
-        Base = mBase;
-        Level = mLevel;
+
         HP = MaxHp;
         SP = MaxSp;
 
@@ -47,13 +64,30 @@ public class partymember : MonoBehaviour
 
     public int MaxHp
     {
-        get { return Mathf.FloorToInt((Base.MaxHp * Level) / 5f) + 10; }
+        get { return Mathf.FloorToInt((Base.MaxHp * Level) / 4.5f) + 10; }
     }
     public int MaxSp
     {
-        get { return Mathf.FloorToInt((Base.MaxSp * Level) / 9f) + 7; }
+        get { return Mathf.FloorToInt((Base.MaxSp * Level) / 4f) + 7; }
     }
 
+    public void spRed(int x)
+    {
+        SP -= x;
+    }
+
+    public void regenSP()
+    {
+        int regen = Mathf.FloorToInt(4 + (MaxSp * .2f));
+        if(regen + SP > MaxSp)
+        {
+            SP = MaxSp;
+        }
+        else
+        {
+            SP += regen;
+        }
+    }
     public damageDetails takeDamage(skill skill, partymember attacker, bool defending)
     {
         float crit = 1f;
@@ -81,7 +115,6 @@ public class partymember : MonoBehaviour
             damageInstance = damage
         };
 
-        print(damage);
         HP -= damage;
         if (HP <= 0)
         {

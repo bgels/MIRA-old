@@ -35,11 +35,11 @@ public class playerMovement : MonoBehaviour
 
             if (Input.GetKeyDown(KeyCode.LeftShift))
             {
-                speed += sprintSpeed;
+            speed = 5 + sprintSpeed;
             }
             if (Input.GetKeyUp(KeyCode.LeftShift))
             {
-                speed -= sprintSpeed;
+            speed = 5;
             }
             
             float moveX = Input.GetAxisRaw("Horizontal");

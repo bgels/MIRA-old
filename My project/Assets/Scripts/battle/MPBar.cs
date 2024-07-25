@@ -17,4 +17,18 @@ public class MPBar : MonoBehaviour
     {
         mpText.text = hp + "/" + maxHp;
     }
+
+    public IEnumerator setMpSmooth(float newHp)
+    {
+        float curHp = mpbar.transform.localScale.x;
+        float changeAmt = curHp - newHp;
+
+        while (curHp - newHp > Mathf.Epsilon)
+        {
+            curHp -= changeAmt * Time.deltaTime * 9;
+            mpbar.transform.localScale = new Vector3(curHp, 1f);
+            yield return null;
+        }
+        mpbar.transform.localScale = new Vector3(newHp, 1f);
+    }
 }

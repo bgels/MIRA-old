@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using System;
-public enum battleStates { Start, playerAction, playerMove, enemyMove, busy }
+public enum battleStates { Start, ActionSelection, SkillSelection, performMove, busy }
 public class BattleScript : MonoBehaviour
 {
     
@@ -48,30 +48,30 @@ public class BattleScript : MonoBehaviour
         yield return dialogueBox.typeDialogue($"{ enemyUnit1.partyMember.Base.Name} blocks the way! \n * what will you do? \n ...");
         yield return new WaitForSeconds(1f);
 
-        playerAction();
+        playerActionSelection();
 
     }
-    void playerAction()
+    void playerActionSelection()
     {
         nextActorText.text = "next: " + enemyUnit1.partyMember.Base.Name;
 
         dialogueBox.enableDialogueText(true);
         dialogueBox.enableActionSelection(true);
         dialogueBox.enableSkillSelector(false);
-        state = battleStates.playerAction; // player turn
+        state = battleStates.ActionSelection; // player turn
 
     }
-    void playerskillSelector()
+    void playerSkillSelection()
     {
-        state = battleStates.playerMove;
+        state = battleStates.SkillSelection;
         dialogueBox.enableDialogueText(false);
         dialogueBox.enableSkillSelector(true);
     }
 
-    IEnumerator performPlayerSkill()
+    IEnumerator playerSkill()
     {
         print("enemy moving...");
-        state = battleStates.busy; // gamestate to prevent action selectio while moves r being processe
+        state = battleStates.performMove; // gamestate to prevent action selectio while moves r being processe
 
         var skill = playerUnit1.partyMember.skills[currentSkill]; //grabs current skill selection
 
@@ -115,14 +115,14 @@ public class BattleScript : MonoBehaviour
         }
         else
         {
-            StartCoroutine(enemyMove());
+            StartCoroutine(enemySkill());
             
         }
     }
-    IEnumerator enemyMove()
+    IEnumerator enemySkill()
     {
         print("enemy moving...");
-        state = battleStates.enemyMove;
+        state = battleStates.performMove;
 
         var skill = enemyUnit1.partyMember.getRandomMove(); //enemy uses random moves from their kit
         yield return dialogueBox.typeDialogue($"{enemyUnit1.partyMember.Base.Name} uses {skill.Base.Name}!");
@@ -150,7 +150,7 @@ public class BattleScript : MonoBehaviour
         else
         {
             yield return dialogueBox.typeDialogue($"{playerUnit1.partyMember.Base.Name} took {damageDetails.damageInstance} damage!\n\n'{skill.Base.Dialogue}'\n\n* What will you do?");
-            playerAction();
+            playerActionSelection();
 
         }
 
@@ -165,7 +165,7 @@ public class BattleScript : MonoBehaviour
         yield return new WaitForSeconds(.3f);
         StartCoroutine(spRegen());
         yield return new WaitForSeconds(1f);
-        StartCoroutine(enemyMove());
+        StartCoroutine(enemySkill());
 
     }
     IEnumerator spRegen()
@@ -187,15 +187,15 @@ public class BattleScript : MonoBehaviour
     }
     public void HandleUpdate()
     {
-        if(state == battleStates.playerAction)
+        if(state == battleStates.ActionSelection)
         {
 
             handleActionSelection();
         }
-        else if(state == battleStates.playerMove)
+        else if(state == battleStates.SkillSelection)
         {
             handleSkillSelection();
-        }else if(state == battleStates.busy && state == battleStates.enemyMove)
+        }else if(state == battleStates.performMove)
         {
             dialogueBox.enableActionSelection(false);
         }
@@ -232,15 +232,15 @@ public class BattleScript : MonoBehaviour
 
         dialogueBox.updateActionSelection(currentAction);
 
-        if (Input.GetKeyDown(KeyCode.Z) && state == battleStates.playerAction)
+        if (Input.GetKeyDown(KeyCode.Z) && state == battleStates.ActionSelection)
         {
             if(currentAction == 1)
             {
-                playerskillSelector();
+                playerSkillSelection();
             }else if(currentAction == 0)
             {
                 currentSkill = 6;
-                StartCoroutine(performPlayerSkill());
+                StartCoroutine(playerSkill());
             }else if(currentAction == 2)
             {
                 print("yet to implement");
@@ -281,7 +281,7 @@ public class BattleScript : MonoBehaviour
         }
 
         dialogueBox.updateSkillSelection(currentSkill, playerUnit1.partyMember.skills[currentSkill]);
-        if(Input.GetKeyDown(KeyCode.Z) && state == battleStates.playerMove)
+        if(Input.GetKeyDown(KeyCode.Z) && state == battleStates.SkillSelection)
         {
             var move = playerUnit1.partyMember.skills[currentSkill];
             if(playerUnit1.partyMember.SP < move.Base.Sp)
@@ -290,14 +290,14 @@ public class BattleScript : MonoBehaviour
             }
             dialogueBox.enableSkillSelector(false);
             dialogueBox.enableDialogueText(true);
-            StartCoroutine(performPlayerSkill());
+            StartCoroutine(playerSkill());
 
         }
-        if(Input.GetKeyDown(KeyCode.X) && state == battleStates.playerMove)
+        if(Input.GetKeyDown(KeyCode.X) && state == battleStates.SkillSelection)
         {
             dialogueBox.enableSkillSelector(false);
             dialogueBox.enableDialogueText(true);
-            playerAction();
+            playerActionSelection();
         }
 
     }

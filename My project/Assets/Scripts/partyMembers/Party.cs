@@ -5,6 +5,8 @@ public class Party : MonoBehaviour
 {
     [SerializeField] List<partymember> partyMembers;
 
+    public List<partymember> PartyMembers { get { return partyMembers; }  }
+
     private void Start()
     {
         foreach(var member in partyMembers)

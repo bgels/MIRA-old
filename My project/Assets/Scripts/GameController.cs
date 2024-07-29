@@ -6,6 +6,7 @@ public enum GameState { Freeroam, Battle }
 public class GameController : MonoBehaviour
 {
     [SerializeField] playerMovement playerController;
+    [SerializeField] GameObject Player;
     [SerializeField] BattleScript battleSystem;
     [SerializeField] Camera worldCamera;
     GameState state;
@@ -22,7 +23,7 @@ public class GameController : MonoBehaviour
         battleSystem.gameObject.SetActive(true);
         worldCamera.gameObject.SetActive(false);
 
-        var playerParty = playerController.GetComponent<Party>();
+        var playerParty = Player.GetComponent<Party>();
         var wildMob = FindObjectOfType<MapArea>().GetComponent<MapArea>().getRandomWildMob();
 
         battleSystem.StartBattle(playerParty, wildMob);

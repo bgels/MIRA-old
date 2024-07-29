@@ -73,7 +73,16 @@ public class partymember
 
     public void spRed(int x)
     {
-        SP -= x;
+
+        if (SP - x < 0)
+        {
+            SP = 0;
+        }
+        else
+        {
+            SP -= x;
+        }
+        
     }
 
     public void regenSP()

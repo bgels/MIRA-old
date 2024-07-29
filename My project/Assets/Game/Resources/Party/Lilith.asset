@@ -20,7 +20,7 @@ MonoBehaviour:
   animationController: {fileID: 0}
   maxHp: 20
   maxSp: 15
-  attack: 16
+  attack: 999
   defense: 10
   determination: 15
   trait1: 6

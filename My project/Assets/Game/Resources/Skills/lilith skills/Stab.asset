@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76d9ae7a01a7bcc429d08bfcaa9e3d0f, type: 3}
   m_Name: Stab
   m_EditorClassIdentifier: 
-  skillName: Stab
-  description: a foward stab, dealing moderate damage to a foe.
+  skillName: Slash
+  description: a foward slash, dealing moderate damage to a foe.
   dialogue: knives clash and sharpen...
   type: 0
   power: 50

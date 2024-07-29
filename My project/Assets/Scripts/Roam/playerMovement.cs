@@ -17,7 +17,10 @@ public class playerMovement : MonoBehaviour
     private float encounterTimer;
 
     public event Action OnEncountered;
-    
+
+    public
+
+
 
     // Start is called before the first frame update
     void Start()

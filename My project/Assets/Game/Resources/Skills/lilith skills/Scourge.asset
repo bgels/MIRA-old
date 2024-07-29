@@ -13,9 +13,15 @@ MonoBehaviour:
   m_Name: Scourge
   m_EditorClassIdentifier: 
   skillName: Sacrafice
-  description: wilt your own health to raise your determination for a small amount.
+  description: raise your determination by a small amount.
   dialogue: all for nothing.
   type: 2
   power: 0
   accuracy: 100
   sp: 13
+  category: 2
+  effects:
+    boosts:
+    - stat: 2
+      boost: 1
+  target: 1

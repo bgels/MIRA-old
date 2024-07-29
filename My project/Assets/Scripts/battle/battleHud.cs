@@ -12,8 +12,9 @@ public class battleHud : MonoBehaviour
     [SerializeField] TextMeshProUGUI enemyDamageText;
     [SerializeField] MPBar mpBar1;
     [SerializeField] bool isPlayer;
+    
 
-    [SerializeField] partymember entity;
+    partymember entity;
     public void setData(partymember partyMember)
     {
         entity = partyMember;

@@ -20,6 +20,7 @@ public class partymemberBase : ScriptableObject
     [SerializeField] int attack; //atk
     [SerializeField] int defense; //def
     [SerializeField] int determination; // speed and crit scaling
+    [SerializeField] int speed;
 
     //ability traits
     [SerializeField] partymemberTrait trait1;
@@ -44,6 +45,7 @@ public class partymemberBase : ScriptableObject
     public int Attack => attack;
     public int Defense => defense;
     public int Determination => determination;
+    public int Speed => speed;
     public Sprite FrontSprite => frontSprite;
     public Sprite EnemySprite => enemySprite;
     public RuntimeAnimatorController AnimatorController => animationController;
@@ -85,4 +87,11 @@ public enum partymemberTrait
 
 }
 
+public enum Stat
+{
+    Attack,
+    Defense,
+    Determination,
+    Speed
+}
  

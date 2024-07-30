@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using DG.Tweening;
 
 public class battleHud : MonoBehaviour
 {
@@ -12,7 +13,7 @@ public class battleHud : MonoBehaviour
     [SerializeField] TextMeshProUGUI enemyDamageText;
     [SerializeField] MPBar mpBar1;
     [SerializeField] bool isPlayer;
-    
+
 
     partymember entity;
     public void setData(partymember partyMember)
@@ -22,7 +23,7 @@ public class battleHud : MonoBehaviour
         Debug.Log(partyMember.Base.Name);
         levelText1.text = "lvl: " + partyMember.Level;
         hpBar1.setHp((float)partyMember.HP / partyMember.MaxHp);
-        if(isPlayer)
+        if (isPlayer)
         {
             hpBar1.setHpText(partyMember.HP, partyMember.MaxHp);
 
@@ -30,7 +31,6 @@ public class battleHud : MonoBehaviour
             mpBar1.setMpText(partyMember.SP, partyMember.MaxSp);
         }
     }
-
     public IEnumerator updateHP(int currentDmg)
     {
         yield return hpBar1.setHpSmooth((float)entity.HP / entity.MaxHp);
@@ -43,7 +43,6 @@ public class battleHud : MonoBehaviour
 
         }
     }
-
 
     public IEnumerator updateMP()
     {

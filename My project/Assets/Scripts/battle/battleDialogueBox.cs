@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using DG.Tweening;
 
 public class battleDialogueBox : MonoBehaviour
 {
@@ -21,7 +22,11 @@ public class battleDialogueBox : MonoBehaviour
     [SerializeField] TextMeshProUGUI spCostText;
     [SerializeField] TextMeshProUGUI skillDescription;
 
-
+    Vector3 originalPos;
+    private void Awake()
+    {
+        originalPos = actionSelector.transform.localPosition;
+    }
     public void SetDialogue( string dialogue)
     {
         dialogueText.text = dialogue;
@@ -55,6 +60,12 @@ public class battleDialogueBox : MonoBehaviour
     public void enableActionSelection(bool enabled)
     {
         actionSelector.SetActive(enabled);
+    }
+
+    public void playActionSelectionAnimation()
+    {
+        actionSelector.transform.localPosition = new Vector3(originalPos.x, originalPos.y - 1000f);
+        actionSelector.transform.DOLocalMoveY(originalPos.y, 1f);
     }
     public void enableSkillSelector(bool enabled)
     {

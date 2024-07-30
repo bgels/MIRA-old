@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -42,6 +42,7 @@ public class BattleScript : MonoBehaviour
     }
     public IEnumerator setupBattle()
     {
+        dialogueBox.playActionSelectionAnimation();
         defending = false;
         playerUnit1.Setup(playerParty.GetHealthyPartymember());
         playerHud1.setData(playerUnit1.partyMember);
@@ -52,7 +53,7 @@ public class BattleScript : MonoBehaviour
         dialogueBox.setSkillNames(playerUnit1.partyMember.skills);
         Debug.Log(playerUnit1.partyMember.skills);
 
-        yield return dialogueBox.typeDialogue($"{ enemyUnit1.partyMember.Base.Name} blocks the way! \n * what will you do? \n ...");
+        yield return dialogueBox.typeDialogue($"{ enemyUnit1.partyMember.Base.Name} blocks the way! \n\n * what will you do? \n ...");
         yield return new WaitForSeconds(1f);
 
         actionSelection();
@@ -62,6 +63,7 @@ public class BattleScript : MonoBehaviour
     void BattleOver(bool won)
     {
         state = battleStates.Battleover;
+        playerParty.PartyMembers.ForEach(p => p.OnBattleOver());
         OnBattleOver(won);
     }
     void actionSelection()
@@ -90,7 +92,7 @@ public class BattleScript : MonoBehaviour
 
     IEnumerator playerMove()
     {
-        print("enemy moving...");
+        print("player moving...");
         state = battleStates.performMove; // gamestate to prevent action selectio while moves r being processe
 
         var skill = playerUnit1.partyMember.skills[currentSkill]; //grabs current skill selection
@@ -99,7 +101,9 @@ public class BattleScript : MonoBehaviour
         {
             currentSkill = 0;
             yield return dialogueBox.typeDialogue($"* {playerUnit1.partyMember.Base.Name} attacks! ");
+            yield return new WaitForSeconds(.3f);
             StartCoroutine(spRegen());
+            yield return new WaitForSeconds(.3f);
 
         }
         yield return new WaitForSeconds(1f);
@@ -121,12 +125,13 @@ public class BattleScript : MonoBehaviour
         var skill = enemyUnit1.partyMember.getRandomMove(); //enemy uses random moves from their kit
 
         yield return runMove(enemyUnit1, playerUnit1, skill);
-        yield return dialogueBox.continueDialogue($"\n\n* What will you do?");
+        yield return dialogueBox.continueDialogue($"\n* What will you do?\n...");
 
         if (state == battleStates.performMove)
         {
             print('y');
             actionSelection();
+            dialogueBox.playActionSelectionAnimation();
         }
 
     }
@@ -135,42 +140,79 @@ public class BattleScript : MonoBehaviour
     IEnumerator runMove(battleUnit source, battleUnit target, skill Skill)
     {
         source.partyMember.spRed(Skill.Base.Sp);
-        yield return dialogueBox.typeDialogue($"{Skill.Base.Dialogue}\n* {source.partyMember.Base.Name} used {Skill.Base.Name}! ");
+        yield return dialogueBox.typeDialogue($"{source.partyMember.Base.Name} uses [{Skill.Base.Name}].\n\n {Skill.Base.Dialogue}");
         yield return new WaitForSeconds(1f);
-
-
-
-        var damageDetails = target.partyMember.takeDamage(Skill, source.partyMember, false); //deal damage to the enemy unit, passing dmgdetails
-
-         // updates enemy hp bar shows enemy dmg taken text briefly
-
-            yield return playerHud1.updateMP();
-            playerHud1.updateSpText();
-
-            yield return enemyHud1.updateHP(damageDetails.damageInstance);
-            enemyDamageText.SetActive(true);
-            yield return new WaitForSeconds(1f);
-            enemyDamageText.SetActive(false);
-
-            yield return playerHud1.updateHP(damageDetails.damageInstance); //updates player hp bar and hp text
-            playerHud1.updateHpText();
 
         target.playHitAnimation();
-        yield return showDamageDetails(damageDetails);
-        yield return dialogueBox.continueDialogue($"\n* {target.partyMember.Base.Name} took {damageDetails.damageInstance} damage~"); //prints damage and damagedetails
-        yield return new WaitForSeconds(1f);
 
-        if (damageDetails.Fainted)
+        
+        if (Skill.Base.Category == skillCategory.Status)
+        {
+            var effects = Skill.Base.Effects;
+            if(effects != null)
+            {
+                if(Skill.Base.Target == skillTarget.Self)
+                {
+                    source.partyMember.applyBoosts(effects.Boosts);
+                    Debug.Log("true");
+                }
+                else
+                {
+                    target.partyMember.applyBoosts(effects.Boosts);
+                    Debug.Log("false");
+                }
+
+                yield return showStatusChange(source.partyMember);
+                yield return showStatusChange(target.partyMember);
+
+            }
+        }
+        else
+        {
+            var damageDetails = target.partyMember.takeDamage(Skill, source.partyMember, false); //deal damage to the enemy unit, passing dmgdetails
+            yield return enemyHud1.updateHP(damageDetails.damageInstance);
+            yield return playerHud1.updateHP(damageDetails.damageInstance);
+            yield return showDamageDetails(damageDetails);
+            if (!source.isplayerUnit)
+            {
+                enemyDamageText.SetActive(true);
+                yield return new WaitForSeconds(.25f);
+                enemyDamageText.SetActive(false);
+            }
+            yield return dialogueBox.typeDialogue($"* {target.partyMember.Base.Name} took {damageDetails.damageInstance} damage~"); //prints damage and damagedetails
+            yield return new WaitForSeconds(.3f);
+        }
+
+
+        // updates enemy hp bar shows enemy dmg taken text briefly
+
+
+        yield return playerHud1.updateMP();
+            playerHud1.updateSpText();
+            playerHud1.updateHpText();
+
+        if (target.partyMember.HP <= 0)
         {
             yield return dialogueBox.typeDialogue($"* {target.partyMember.Base.Name} was defeated.");
             enemyUnit1.playFaintAnimation();
-            yield return new WaitForSeconds(2f);
+            yield return new WaitForSeconds(1f);
 
 
             checkForBattleOver(target);
         }
          
 
+    }
+
+    IEnumerator showStatusChange(partymember partyMember)
+    {
+        print("showStatusChange called");
+        while(partyMember.statusChanges.Count > 0)
+        {
+            var message = partyMember.statusChanges.Dequeue();
+            print(message);
+            yield return dialogueBox.typeDialogue(message);
+        }
     }
 
     void checkForBattleOver(battleUnit unit)
@@ -194,7 +236,7 @@ public class BattleScript : MonoBehaviour
 
     IEnumerator performPlayerDefend()
     {
-        state = battleStates.busy;
+        state = battleStates.performMove;
         defending = true;
         yield return dialogueBox.typeDialogue($"* {playerUnit1.partyMember.Base.Name} is bracing for impact...");
         yield return new WaitForSeconds(.3f);
@@ -205,7 +247,7 @@ public class BattleScript : MonoBehaviour
     }
     IEnumerator spRegen()
     {
-        state = battleStates.busy;
+        state = battleStates.performMove;
         playerUnit1.partyMember.regenSP();
         yield return dialogueBox.typeDialogue("You got some SP back!");
         yield return new WaitForSeconds(.25f);

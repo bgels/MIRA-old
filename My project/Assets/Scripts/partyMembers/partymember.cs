@@ -27,12 +27,15 @@ public class partymember
     public int HP { get; set; }
     public int SP { get; set; }
     public List<skill> skills { get; set; }
-    
+
+    public Dictionary<Stat, int> Stats { get; private set;}
+    public Dictionary<Stat, int> StatBoosts { get; private set; }
+
+    public Queue<string> statusChanges { get; private set; } = new Queue<string>();
+
     public void Init() // member base/level
     {
 
-        HP = MaxHp;
-        SP = MaxSp;
 
         //generates moves
         skills = new List<skill>();
@@ -47,28 +50,104 @@ public class partymember
                 break;
             }
         }
+        calculateStats();
+
+        HP = MaxHp;
+        SP = MaxSp;
+
+        resetStatBoost();
+
+    }
+
+    void resetStatBoost()
+    {
+        StatBoosts = new Dictionary<Stat, int>()
+        {
+            {Stat.Attack,0 },
+            {Stat.Defense,0 },
+            {Stat.Determination,0 },
+            {Stat.Speed,0 }
+        };
+    }
+    void calculateStats()
+    {
+        Stats = new Dictionary<Stat, int>();
+        Stats.Add(Stat.Attack, Mathf.FloorToInt((Base.Attack * Level)/9f) + 5);
+        Stats.Add(Stat.Defense, Mathf.FloorToInt((Base.Defense * Level) / 9f) + 5);
+        Stats.Add(Stat.Determination, Mathf.FloorToInt((Base.Determination * Level) / 10f) + 3);
+        Stats.Add(Stat.Speed, Mathf.FloorToInt((Base.Speed * Level) / 10f) + 5);
+
+        MaxHp = Mathf.FloorToInt((Base.MaxHp * Level) / 4.5f) + 10;
+        MaxSp = Mathf.FloorToInt((Base.MaxSp * Level) / 4f) + 7;
+    }
+
+    int getStat(Stat stat)
+    {
+        int statVal = Stats[stat];
+
+        int boost = StatBoosts[stat];
+        var boostValues = new float[]
+        {
+            1f,1.5f,2f,2.5f,3f,3.5f,4f
+        };
+
+        if(boost >= 0)
+        {
+            statVal = Mathf.FloorToInt(statVal * boostValues[boost]);
+
+        }
+        else
+        {
+            statVal = Mathf.FloorToInt(statVal * boostValues[-boost]);
+        };
+
+        return statVal;
+    }
+    public void applyBoosts(List<StatBoost> statBoosts)
+    {
+        foreach(var statBoost in statBoosts)
+        {
+            var stat = statBoost.stat;
+            var boost = statBoost.boost;
+
+            StatBoosts[stat] = Mathf.Clamp(StatBoosts[stat] + boost, -6, 6);
+
+            if(boost > 0)
+            {
+                statusChanges.Enqueue($"* {Base.name}'s stat rises...");
+            }
+            else
+            {
+                statusChanges.Enqueue($"* {Base.name}'s stat drops...");;
+            }
+            Debug.Log("ran");
+        }
     }
 
     public int Attack
     {
-        get { return Mathf.FloorToInt((Base.Attack * Level)/9f) + 5; }
+        get { return getStat(Stat.Attack); }
     }
     public int Defense
     {
-        get { return Mathf.FloorToInt((Base.Defense * Level) / 9f) + 5; }
+        get { return getStat(Stat.Defense); }
     }
     public int Determination
     {
-        get { return Mathf.FloorToInt((Base.Determination * Level) / 10f) + 3; }
+        get { return getStat(Stat.Determination); }
     }
 
     public int MaxHp
     {
-        get { return Mathf.FloorToInt((Base.MaxHp * Level) / 4.5f) + 10; }
+        get;private set;
     }
     public int MaxSp
     {
-        get { return Mathf.FloorToInt((Base.MaxSp * Level) / 4f) + 7; }
+        get; private set;
+    }
+    public int Speed
+    {
+        get { return getStat(Stat.Speed); }
     }
 
     public void spRed(int x)
@@ -131,6 +210,11 @@ public class partymember
             damageDetails.Fainted = true;
         }
         return damageDetails;
+    }
+
+    public void OnBattleOver()
+    {
+        resetStatBoost();
     }
 
     public skill getRandomMove()

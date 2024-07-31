@@ -62,7 +62,10 @@ public class BattleScript : MonoBehaviour
     void BattleOver(bool won)
     {
         state = battleStates.Battleover;
+<<<<<<< HEAD
         playerParty.PartyMembers.ForEach(p => p.OnBattleOver());
+=======
+>>>>>>> 9203a9559b581749a9ece54fd763fdc0e28a022f
         OnBattleOver(won);
     }
     void actionSelection()
@@ -91,7 +94,11 @@ public class BattleScript : MonoBehaviour
 
     IEnumerator playerMove()
     {
+<<<<<<< HEAD
         print("player moving...");
+=======
+        print("enemy moving...");
+>>>>>>> 9203a9559b581749a9ece54fd763fdc0e28a022f
         state = battleStates.performMove; // gamestate to prevent action selectio while moves r being processe
 
         var skill = playerUnit1.partyMember.skills[currentSkill]; //grabs current skill selection
@@ -101,7 +108,10 @@ public class BattleScript : MonoBehaviour
             currentSkill = 0;
             yield return dialogueBox.typeDialogue($"* {playerUnit1.partyMember.Base.Name} attacks! ");
             StartCoroutine(spRegen());
+<<<<<<< HEAD
             yield return new WaitForSeconds(1f);
+=======
+>>>>>>> 9203a9559b581749a9ece54fd763fdc0e28a022f
 
         }
         yield return new WaitForSeconds(1f);
@@ -121,6 +131,7 @@ public class BattleScript : MonoBehaviour
         state = battleStates.performMove;
         defending = false;
         var skill = enemyUnit1.partyMember.getRandomMove(); //enemy uses random moves from their kit
+<<<<<<< HEAD
 
         yield return runMove(enemyUnit1, playerUnit1, skill);
         yield return dialogueBox.continueDialogue($"\n\n* What will you do?");
@@ -222,6 +233,77 @@ public class BattleScript : MonoBehaviour
     }
 
 
+=======
+
+        yield return runMove(enemyUnit1, playerUnit1, skill);
+        yield return dialogueBox.continueDialogue($"\n\n* What will you do?");
+
+        if (state == battleStates.performMove)
+        {
+            print('y');
+            actionSelection();
+        }
+
+    }
+
+
+    IEnumerator runMove(battleUnit source, battleUnit target, skill Skill)
+    {
+        source.partyMember.spRed(Skill.Base.Sp);
+        yield return dialogueBox.typeDialogue($"{Skill.Base.Dialogue}\n* {source.partyMember.Base.Name} used {Skill.Base.Name}! ");
+        yield return new WaitForSeconds(1f);
+
+
+
+        var damageDetails = target.partyMember.takeDamage(Skill, source.partyMember, false); //deal damage to the enemy unit, passing dmgdetails
+
+         // updates enemy hp bar shows enemy dmg taken text briefly
+
+            yield return playerHud1.updateMP();
+            playerHud1.updateSpText();
+
+            yield return enemyHud1.updateHP(damageDetails.damageInstance);
+            enemyDamageText.SetActive(true);
+            yield return new WaitForSeconds(1f);
+            enemyDamageText.SetActive(false);
+
+            yield return playerHud1.updateHP(damageDetails.damageInstance); //updates player hp bar and hp text
+            playerHud1.updateHpText();
+
+        target.playHitAnimation();
+        yield return showDamageDetails(damageDetails);
+        yield return dialogueBox.continueDialogue($"\n* {target.partyMember.Base.Name} took {damageDetails.damageInstance} damage~"); //prints damage and damagedetails
+        yield return new WaitForSeconds(1f);
+
+        if (damageDetails.Fainted)
+        {
+            yield return dialogueBox.typeDialogue($"* {target.partyMember.Base.Name} was defeated.");
+            enemyUnit1.playFaintAnimation();
+            yield return new WaitForSeconds(2f);
+
+
+            checkForBattleOver(target);
+        }
+         
+
+    }
+
+    void checkForBattleOver(battleUnit unit)
+    {
+        if (unit.isplayerUnit)
+        {
+            print("Player died");
+            BattleOver(false);
+        }
+        else
+        {
+            print("Enemy died");
+            BattleOver(true);
+        }
+    }
+
+
+>>>>>>> 9203a9559b581749a9ece54fd763fdc0e28a022f
 
 
 

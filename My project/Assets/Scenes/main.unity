@@ -1777,6 +1777,7 @@ MonoBehaviour:
   _base: {fileID: 11400000, guid: 61ccc0d4f1e510445afbeb613c72a2c6, type: 2}
   level: 12
   isPlayerUnit: 1
+  hud: {fileID: 0}
 --- !u!1 &397075026
 GameObject:
   m_ObjectHideFlags: 0
@@ -4378,6 +4379,7 @@ MonoBehaviour:
   _base: {fileID: 11400000, guid: 4e7f9ed78280d074685f2b749ea18c1d, type: 2}
   level: 10
   isPlayerUnit: 0
+  hud: {fileID: 0}
 --- !u!114 &519477813
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -45,8 +45,6 @@ public class battleHud : MonoBehaviour
 
         }
     }
-<<<<<<< HEAD:My project/Assets/Scripts/battle/battleHud.cs
-=======
     public IEnumerator updateHP()
     {
         if (entity.hpChanged)
@@ -57,7 +55,6 @@ public class battleHud : MonoBehaviour
         }
         
     }
->>>>>>> 2d2eba1096ddc4883affe20538b59add8484df81:mira/Assets/Scripts/battle/battleHud.cs
 
     public IEnumerator updateMP()
     {

@@ -39,22 +39,16 @@ public class skillBase : ScriptableObject
 public class skillEffects
 {
     [SerializeField] List<StatBoost> boosts;
-<<<<<<< HEAD:My project/Assets/Scripts/partyMembers/skillBase.cs
-=======
     [SerializeField] conditionID status;
->>>>>>> 2d2eba1096ddc4883affe20538b59add8484df81:mira/Assets/Scripts/partyMembers/skillBase.cs
 
     public List<StatBoost> Boosts
     {
         get { return boosts; }
     }
-<<<<<<< HEAD:My project/Assets/Scripts/partyMembers/skillBase.cs
-=======
     public conditionID Status
     {
         get { return status; }
     }
->>>>>>> 2d2eba1096ddc4883affe20538b59add8484df81:mira/Assets/Scripts/partyMembers/skillBase.cs
 }
 
 [System.Serializable]

@@ -32,13 +32,34 @@ public class battleDialogueBox : MonoBehaviour
         dialogueText.text = dialogue;
     }
 
-    public IEnumerator typeDialogue(string dialogue) //dialogue box iterator
+    public IEnumerator typeDialogue(string dialogue)
     {
         dialogueText.text = "";
-        foreach(var letter in dialogue.ToCharArray())
+        bool insideTag = false;
+        string currentTag = "";
+        foreach (var letter in dialogue.ToCharArray())
         {
-            dialogueText.text += letter;
-            yield return new WaitForSeconds(1f / textperSec);
+            if (letter == '<')
+            {
+                insideTag = true;
+                currentTag += letter;
+            }
+            else if (letter == '>')
+            {
+                insideTag = false;
+                currentTag += letter;
+                dialogueText.text += currentTag;
+                currentTag = "";
+            }
+            else if (insideTag)
+            {
+                currentTag += letter;
+            }
+            else
+            {
+                dialogueText.text += letter;
+                yield return new WaitForSeconds(1f / textperSec);
+            }
         }
     }
 

@@ -25,8 +25,5 @@ MonoBehaviour:
     boosts:
     - stat: 1
       boost: -1
-<<<<<<< HEAD:My project/Assets/Game/Resources/Skills/lilith skills/Wither.asset
-=======
     status: 0
->>>>>>> 2d2eba1096ddc4883affe20538b59add8484df81:mira/Assets/Game/Resources/Skills/lilith skills/Wither.asset
   target: 0

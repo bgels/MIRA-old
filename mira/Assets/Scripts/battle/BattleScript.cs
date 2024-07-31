@@ -149,47 +149,22 @@ public class BattleScript : MonoBehaviour
 
     IEnumerator runMove(battleUnit source, battleUnit target, skill Skill)
     {
+        bool canRunSkill = source.partyMember.OnBeforeMove();
+
+        if (!canRunSkill)
+        {
+            yield return showStatusChange(source.partyMember);
+            yield break;
+        }
+        yield return showStatusChange(source.partyMember);
+
         source.partyMember.spRed(Skill.Base.Sp);
         yield return dialogueBox.typeDialogue($"{source.partyMember.Base.Name} uses [{Skill.Base.Name}].\n\n {Skill.Base.Dialogue}");
         yield return new WaitForSeconds(1f);
 
-<<<<<<< HEAD:My project/Assets/Scripts/battle/BattleScript.cs
-        target.playHitAnimation();
-=======
-        
->>>>>>> 2d2eba1096ddc4883affe20538b59add8484df81:mira/Assets/Scripts/battle/BattleScript.cs
 
-        
         if (Skill.Base.Category == skillCategory.Status)
         {
-<<<<<<< HEAD:My project/Assets/Scripts/battle/BattleScript.cs
-            var effects = Skill.Base.Effects;
-            if(effects != null)
-            {
-                if(Skill.Base.Target == skillTarget.Self)
-                {
-                    source.partyMember.applyBoosts(effects.Boosts);
-                    Debug.Log("true");
-                }
-                else
-                {
-                    target.partyMember.applyBoosts(effects.Boosts);
-                    Debug.Log("false");
-                }
-
-                yield return showStatusChange(source.partyMember);
-                yield return showStatusChange(target.partyMember);
-
-            }
-        }
-        else
-        {
-            var damageDetails = target.partyMember.takeDamage(Skill, source.partyMember, false); //deal damage to the enemy unit, passing dmgdetails
-            yield return enemyHud1.updateHP(damageDetails.damageInstance);
-            yield return playerHud1.updateHP(damageDetails.damageInstance);
-            yield return showDamageDetails(damageDetails);
-            if (!source.isplayerUnit)
-=======
             yield return RunSkillEffects(Skill, source.partyMember, target.partyMember);
         }
         target.playHitAnimation();
@@ -199,7 +174,6 @@ public class BattleScript : MonoBehaviour
             yield return playerHud1.updateHP(damageDetails.damageInstance);
             yield return showDamageDetails(damageDetails);
             if (!target.isplayerUnit)
->>>>>>> 2d2eba1096ddc4883affe20538b59add8484df81:mira/Assets/Scripts/battle/BattleScript.cs
             {
                 enemyDamageText.SetActive(true);
                 yield return new WaitForSeconds(.25f);
@@ -207,11 +181,7 @@ public class BattleScript : MonoBehaviour
             }
             yield return dialogueBox.typeDialogue($"* {target.partyMember.Base.Name} took {damageDetails.damageInstance} damage~"); //prints damage and damagedetails
             yield return new WaitForSeconds(.3f);
-<<<<<<< HEAD:My project/Assets/Scripts/battle/BattleScript.cs
-        }
-=======
         
->>>>>>> 2d2eba1096ddc4883affe20538b59add8484df81:mira/Assets/Scripts/battle/BattleScript.cs
 
 
         // updates enemy hp bar shows enemy dmg taken text briefly
@@ -284,17 +254,6 @@ public class BattleScript : MonoBehaviour
             print(message);
             yield return dialogueBox.typeDialogue(message);
             yield return new WaitForSeconds(.2f);
-        }
-    }
-
-    IEnumerator showStatusChange(partymember partyMember)
-    {
-        print("showStatusChange called");
-        while(partyMember.statusChanges.Count > 0)
-        {
-            var message = partyMember.statusChanges.Dequeue();
-            print(message);
-            yield return dialogueBox.typeDialogue(message);
         }
     }
 

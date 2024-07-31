@@ -23,12 +23,11 @@ MonoBehaviour:
   attack: 20
   defense: 2
   determination: 20
+  speed: 0
   trait1: 0
   trait2: 0
   trait3: 0
   trait4: 0
   learnableSkills:
   - skillBase: {fileID: 11400000, guid: a6e5881cfe5b38349b3c56b678212864, type: 2}
-    level: 0
-  - skillBase: {fileID: 11400000, guid: 7c5dd54a35eda46999167fa436894aa7, type: 2}
     level: 0

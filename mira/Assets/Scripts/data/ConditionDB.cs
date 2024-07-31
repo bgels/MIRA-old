@@ -1,41 +1,1 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-public class ConditionDB : MonoBehaviour
-{
-
-
-    public static Dictionary<conditionID, Condition> Conditions { get; set; } = new Dictionary<conditionID, Condition>()
-    {
-        { conditionID.wit,
-            new Condition()
-            {
-                Name = "Wither",
-                StartMessage = "starts to withering..",
-                OnAfterTurn = (partymember Member) =>
-                {
-                    Member.hpRed(Member.MaxHp/8);
-                    Member.statusChanges.Enqueue($"{Member.Base.Name} slowly withers...");
-                }
-            }
-        },
-        { conditionID.brn,
-            new Condition()
-            {
-                Name = "Burn",
-                StartMessage = "burns up!",
-                OnAfterTurn = (partymember Member) =>
-                {
-                    Member.hpRed(Member.MaxHp/16);
-                    Member.statusChanges.Enqueue($"{Member.Base.Name} is on fire!");
-                }
-            }
-        }
-
-    };
-}
-public enum conditionID
-{
-    none, wit, brn, slp, par, frz
-}
+using System.Collections;using System.Collections.Generic;using UnityEngine;public class ConditionDB : MonoBehaviour{    public static Dictionary<conditionID, Condition> Conditions { get; set; } = new Dictionary<conditionID, Condition>()    {        { conditionID.wit,            new Condition()            {                Name = "Wither",                StartMessage = "is afflicted with wither!",                OnAfterTurn = (partymember Member) =>                {                    Member.hpRed(Member.MaxHp/8);                    Member.statusChanges.Enqueue($"{Member.Base.Name} is decaying...");                }            }        },        { conditionID.brn,            new Condition()            {                Name = "Burn",                StartMessage = "is burning up",                OnAfterTurn = (partymember Member) =>                {                    Member.hpRed(Member.MaxHp/10);                    Member.statusChanges.Enqueue($"{Member.Base.Name} is on fire!");                }            }        },        { conditionID.par,            new Condition()            {                Name = "Paralyzed",                StartMessage = "is afflicted with <color=#00008B>fear.</color>",                OnBeforeMove = (partymember Member) =>                {                    if(Random.Range(1,5) ==1)                    {                        Member.statusChanges.Enqueue($"{Member.Base.Name} <color=#00008B>feels afraid...</color>");                        return false;                    }                    return true;                }            }        },        { conditionID.frz,            new Condition()            {                Name = "Freeze",                StartMessage = "has been frozen!",                OnBeforeMove = (partymember Member) =>                {                    if(Random.Range(1,5) ==1)                    {                        Member.cureStatus();                        Member.statusChanges.Enqueue($"{Member.Base.Name} thaws!");                        return true;                    }                    return false;                }            }        },        { conditionID.slp,            new Condition()            {                Name = "Sleep",                StartMessage = "has fallen unconscious...",                onStart = (partymember Member) =>                {                    Member.statusTime = Random.Range(1,4);                    Debug.Log($"Will be asleep for {Member.statusTime} moves");                },                OnBeforeMove = (partymember Member) =>                {                    if(Member.statusTime <= 0)                    {                        Member.cureStatus();                        Member.statusChanges.Enqueue($"{Member.Base.Name} woke up!");                        return true;                    }                    Member.statusTime--;                    Member.statusChanges.Enqueue($"{Member.Base.Name} is fast asleep...");                    return false;                }            }        },    };}public enum conditionID{    none, wit, brn, slp, par, frz}

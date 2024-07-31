@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 351f8252d83e9ec45a2e447373a07f8b, type: 3}
+  m_Name: plutoTest
+  m_EditorClassIdentifier: 
+  memberName: <color=blue>PLUTO</color>
+  description: 
+  type: 0
+  frontSprite: {fileID: 0}
+  enemySprite: {fileID: 5159734753982118673, guid: 1d5ff9eef4c3e184a8388104225f1914, type: 3}
+  animationController: {fileID: 9100000, guid: 385815c93695a49c3a3039d70327b083, type: 2}
+  maxHp: 500
+  maxSp: 9999999
+  attack: 10
+  defense: 3
+  determination: 10
+  trait1: 0
+  trait2: 0
+  trait3: 0
+  trait4: 0
+  learnableSkills:
+  - skillBase: {fileID: 11400000, guid: d359f568c1785445cbb46c27da7d2f1f, type: 2}
+    level: 0
+  - skillBase: {fileID: 11400000, guid: aa9ca5543c90342bdb5b4e3d57293175, type: 2}
+    level: 0

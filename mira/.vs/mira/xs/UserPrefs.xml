@@ -1,0 +1,20 @@
+﻿<Properties StartupConfiguration="{FA01C5AB-7ACA-8042-7BC3-6EBB6D38B57F}|">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/battle/battleUnit.cs">
+    <Files>
+      <File FileName="Assets/Scripts/battle/battleUnit.cs" Line="45" Column="6" />
+      <File FileName="Assets/Scripts/partyMembers/partymember.cs" Line="195" Column="53" />
+      <File FileName="Assets/Scripts/partyMembers/partymemberBase.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/data/ConditionDB.cs" Line="40" Column="34" />
+      <File FileName="Assets/Scripts/partyMembers/Condition.cs" Line="12" Column="55" />
+      <File FileName="Assets/Scripts/partyMembers/skillBase.cs" Line="50" Column="31" />
+      <File FileName="Assets/Scripts/partyMembers/skill.cs" Line="1" Column="1" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Release" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="2befbe0f-0f99-4133-8a50-8e3ba7edbbc7" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>

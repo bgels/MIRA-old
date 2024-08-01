@@ -1,0 +1,2 @@
+/Users/pizza/Downloads/MIRA-main 2/mira/obj/Release/Assembly-CSharp-firstpass.csproj.AssemblyReference.cache
+/Users/pizza/Downloads/MIRA-main 2/mira/obj/Release/Assembly-CSharp-firstpass.csproj.CoreCompileInputs.cache

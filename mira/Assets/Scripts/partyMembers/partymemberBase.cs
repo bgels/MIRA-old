@@ -92,6 +92,11 @@ public enum Stat
     Attack,
     Defense,
     Determination,
-    Speed
+    Speed,
+
+
+    //Not action stats
+    Accuracy,
+    Evasion
 }
  

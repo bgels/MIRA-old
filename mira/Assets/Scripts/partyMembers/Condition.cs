@@ -11,4 +11,6 @@ public class Condition : MonoBehaviour
     public Action<partymember> onStart { get; set; } 
     public Func<partymember, bool> OnBeforeMove { get; set; } //returning
     public Action<partymember> OnAfterTurn { get; set; } //setting
+
+    public conditionID Id { get; set; }
 }

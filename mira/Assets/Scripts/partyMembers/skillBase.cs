@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "skillScript", menuName = "partymember/create new skill")]
+[CreateAssetMenu(fileName = "skillScript", menuName = "partymember/create new skill")] //asset menu
 public class skillBase : ScriptableObject
 {
     [SerializeField] string skillName;
@@ -19,7 +19,10 @@ public class skillBase : ScriptableObject
     [SerializeField] int sp;
     [SerializeField] skillCategory category;
     [SerializeField] skillEffects effects;
+    [SerializeField] List<SecondaryEffects> secondaries;
     [SerializeField] skillTarget target;
+    [SerializeField] bool alwaysHit;
+
 
     public string Name => skillName;
     public string Description => description;
@@ -29,14 +32,16 @@ public class skillBase : ScriptableObject
     public int Accuracy => accuracy;
     public int Sp => sp;
 
+    public bool AlwaysHit => alwaysHit;
     public skillCategory Category => category;
     public skillEffects Effects => effects;
+    public List<SecondaryEffects> Secondaries => secondaries;
     public skillTarget Target => target;
 
 
 }
 [System.Serializable]
-public class skillEffects
+public class skillEffects // determines the primary effects of skill
 {
     [SerializeField] List<StatBoost> boosts;
     [SerializeField] conditionID status;
@@ -48,6 +53,22 @@ public class skillEffects
     public conditionID Status
     {
         get { return status; }
+    }
+}
+
+[System.Serializable]
+public class SecondaryEffects : skillEffects // determines secondary effects, based on probability, inheriting from skilleffect class
+{
+    [SerializeField] int chance;
+    [SerializeField] skillTarget target;
+
+    public int Chance
+    {
+        get { return chance; }
+    }
+    public skillTarget Target
+    {
+        get { return target; }
     }
 }
 

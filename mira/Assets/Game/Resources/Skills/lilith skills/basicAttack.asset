@@ -19,3 +19,10 @@ MonoBehaviour:
   power: 20
   accuracy: 100
   sp: 0
+  category: 0
+  effects:
+    boosts: []
+    status: 0
+  secondaries: []
+  target: 0
+  alwaysHit: 1

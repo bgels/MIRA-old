@@ -19,11 +19,13 @@ MonoBehaviour:
 
     everything becomes murky...'
   type: 0
-  power: 369
+  power: 396
   accuracy: 100
   sp: 49
-  category: 0
+  category: 2
   effects:
     boosts: []
-    status: 0
+    status: 1
+  secondaries: []
   target: 0
+  alwaysHit: 1

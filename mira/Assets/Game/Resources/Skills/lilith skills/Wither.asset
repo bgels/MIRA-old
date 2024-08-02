@@ -14,16 +14,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   skillName: Wither
   description: incarnate and release an enchanted bloodbloom, dealing damage and
-    poisoning enemies.
+    withering enemies
   dialogue: all shall rot!
   type: 3
   power: 20
-  accuracy: 80
-  sp: 15
+  accuracy: 70
+  sp: 40
   category: 2
   effects:
     boosts:
     - stat: 1
       boost: -1
-    status: 0
+    status: 1
+  secondaries: []
   target: 0
+  alwaysHit: 0

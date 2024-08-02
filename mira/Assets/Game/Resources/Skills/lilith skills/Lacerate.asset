@@ -13,17 +13,23 @@ MonoBehaviour:
   m_Name: Lacerate
   m_EditorClassIdentifier: 
   skillName: Lacerate
-  description: stabs a foe multiple times, applying wither and dealing a great amount
-    of damage.
+  description: stabs a foe multiple times dealing a great amount of damage, with
+    a chance of applying <color=#FF0000>Wither</color>.
   dialogue: 'dragon scales, twin meteors, repulse!
 
 '
   type: 1
-  power: 175
-  accuracy: 0
+  power: 190
+  accuracy: 100
   sp: 27
   category: 2
   effects:
     boosts: []
+    status: 0
+  secondaries:
+  - boosts: []
     status: 1
+    chance: 33
+    target: 0
   target: 0
+  alwaysHit: 0

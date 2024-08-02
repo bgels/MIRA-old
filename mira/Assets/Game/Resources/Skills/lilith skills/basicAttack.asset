@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: basicAttack
   m_EditorClassIdentifier: 
   skillName: stab
-  description: 
+  description: Just a regular stab.
   dialogue: 
   type: 0
   power: 20

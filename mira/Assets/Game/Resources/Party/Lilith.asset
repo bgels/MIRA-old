@@ -31,14 +31,12 @@ MonoBehaviour:
   learnableSkills:
   - skillBase: {fileID: 11400000, guid: 112557bcab41eb64985b6078f46eb377, type: 2}
     level: 3
-  - skillBase: {fileID: 11400000, guid: 464781875804e3b45bfcce588e7c81d4, type: 2}
+  - skillBase: {fileID: 11400000, guid: 7fd7a0172a4816e4da5646710c64a008, type: 2}
     level: 5
   - skillBase: {fileID: 11400000, guid: 947f721c08dec4349842b25eec4b1496, type: 2}
     level: 7
   - skillBase: {fileID: 11400000, guid: 7fd7a0172a4816e4da5646710c64a008, type: 2}
     level: 9
-  - skillBase: {fileID: 11400000, guid: 7bd563402c3090e4f920240ad7d37c21, type: 2}
-    level: 12
   - skillBase: {fileID: 11400000, guid: 7bd563402c3090e4f920240ad7d37c21, type: 2}
     level: 12
   - skillBase: {fileID: 11400000, guid: 3f5748e811e3c9443b8a21898cb0f36f, type: 2}

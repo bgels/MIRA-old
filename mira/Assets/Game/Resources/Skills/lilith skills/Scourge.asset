@@ -16,12 +16,15 @@ MonoBehaviour:
   description: raise your determination by a small amount.
   dialogue: all for nothing.
   type: 2
-  power: 0
-  accuracy: 100
+  power: 2
+  accuracy: 80
   sp: 13
   category: 2
   effects:
     boosts:
     - stat: 2
-      boost: 1
+      boost: 2
+    status: 0
+  secondaries: []
   target: 1
+  alwaysHit: 0

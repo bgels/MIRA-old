@@ -16,17 +16,13 @@ MonoBehaviour:
   description: a foward slash, dealing moderate damage to a foe.
   dialogue: knives clash and sharpen...
   type: 0
-  power: 50
+  power: 60
   accuracy: 70
   sp: 9
   category: 0
   effects:
     boosts: []
-    status: 5
-  secondaries:
-  - boosts: []
-    status: 1
-    chance: 70
-    target: 0
+    status: 0
+  secondaries: []
   target: 0
   alwaysHit: 0

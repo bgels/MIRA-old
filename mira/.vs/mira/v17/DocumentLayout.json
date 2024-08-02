@@ -7,19 +7,31 @@
       "RelativeMoniker": "D:0:0:{FA01C5AB-7ACA-8042-7BC3-6EBB6D38B57F}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\partymembers\\partymember.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{FA01C5AB-7ACA-8042-7BC3-6EBB6D38B57F}|Assembly-CSharp.csproj|c:\\users\\yulu7\\downloads\\mira-main (1)\\mira-main\\mira\\assets\\scripts\\battle\\battleunit.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{FA01C5AB-7ACA-8042-7BC3-6EBB6D38B57F}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\battle\\battleunit.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{FA01C5AB-7ACA-8042-7BC3-6EBB6D38B57F}|Assembly-CSharp.csproj|c:\\users\\yulu7\\downloads\\mira-main (1)\\mira-main\\mira\\assets\\scripts\\partymembers\\skillbase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FA01C5AB-7ACA-8042-7BC3-6EBB6D38B57F}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\partymembers\\skillbase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{FA01C5AB-7ACA-8042-7BC3-6EBB6D38B57F}|Assembly-CSharp.csproj|c:\\users\\yulu7\\downloads\\mira-main (1)\\mira-main\\mira\\assets\\scripts\\data\\conditiondb.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{FA01C5AB-7ACA-8042-7BC3-6EBB6D38B57F}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\data\\conditiondb.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{FA01C5AB-7ACA-8042-7BC3-6EBB6D38B57F}|Assembly-CSharp.csproj|c:\\users\\yulu7\\downloads\\mira-main (1)\\mira-main\\mira\\assets\\scripts\\roam\\playermovement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FA01C5AB-7ACA-8042-7BC3-6EBB6D38B57F}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\roam\\playermovement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{FA01C5AB-7ACA-8042-7BC3-6EBB6D38B57F}|Assembly-CSharp.csproj|c:\\users\\yulu7\\downloads\\mira-main (1)\\mira-main\\mira\\assets\\scripts\\battle\\battlescript.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{FA01C5AB-7ACA-8042-7BC3-6EBB6D38B57F}|Assembly-CSharp.csproj|C:\\Users\\yulu7\\Downloads\\MIRA-main (1)\\MIRA-main\\mira\\assets\\scripts\\battle\\battlescript.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{FA01C5AB-7ACA-8042-7BC3-6EBB6D38B57F}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\battle\\battlescript.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{FA01C5AB-7ACA-8042-7BC3-6EBB6D38B57F}|Assembly-CSharp.csproj|c:\\users\\yulu7\\downloads\\mira-main (1)\\mira-main\\mira\\assets\\scripts\\battle\\battledialoguebox.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{FA01C5AB-7ACA-8042-7BC3-6EBB6D38B57F}|Assembly-CSharp.csproj|c:\\users\\yulu7\\downloads\\mira-main (1)\\mira-main\\mira\\assets\\scripts\\partymembers\\skill.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FA01C5AB-7ACA-8042-7BC3-6EBB6D38B57F}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\partymembers\\skill.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FA01C5AB-7ACA-8042-7BC3-6EBB6D38B57F}|Assembly-CSharp.csproj|C:\\Users\\yulu7\\Downloads\\MIRA-main (1)\\MIRA-main\\mira\\assets\\scripts\\battle\\battleunit.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FA01C5AB-7ACA-8042-7BC3-6EBB6D38B57F}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\battle\\battleunit.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FA01C5AB-7ACA-8042-7BC3-6EBB6D38B57F}|Assembly-CSharp.csproj|C:\\Users\\yulu7\\Downloads\\MIRA-main (1)\\MIRA-main\\mira\\assets\\scripts\\data\\conditiondb.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FA01C5AB-7ACA-8042-7BC3-6EBB6D38B57F}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\data\\conditiondb.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FA01C5AB-7ACA-8042-7BC3-6EBB6D38B57F}|Assembly-CSharp.csproj|C:\\Users\\yulu7\\Downloads\\MIRA-main (1)\\MIRA-main\\mira\\assets\\scripts\\battle\\battledialoguebox.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{FA01C5AB-7ACA-8042-7BC3-6EBB6D38B57F}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\battle\\battledialoguebox.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
@@ -30,7 +42,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 5,
           "Children": [
             {
               "$type": "Document",
@@ -40,7 +52,7 @@
               "RelativeDocumentMoniker": "Assets\\Scripts\\battle\\BattleScript.cs",
               "ToolTip": "C:\\Users\\yulu7\\Downloads\\MIRA-main (1)\\MIRA-main\\mira\\Assets\\Scripts\\battle\\BattleScript.cs",
               "RelativeToolTip": "Assets\\Scripts\\battle\\BattleScript.cs",
-              "ViewState": "AQIAAAYAAAAAAAAAAAAAABsAAAArAAAA",
+              "ViewState": "AQIAAEwAAAAAAAAAAAAAAG8AAAA0AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-08-01T02:57:32.149Z",
               "IsPinned": true,
@@ -49,19 +61,45 @@
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "ConditionDB.cs",
-              "DocumentMoniker": "C:\\Users\\yulu7\\Downloads\\MIRA-main (1)\\MIRA-main\\mira\\Assets\\Scripts\\data\\ConditionDB.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\data\\ConditionDB.cs",
-              "ToolTip": "C:\\Users\\yulu7\\Downloads\\MIRA-main (1)\\MIRA-main\\mira\\Assets\\Scripts\\data\\ConditionDB.cs",
-              "RelativeToolTip": "Assets\\Scripts\\data\\ConditionDB.cs",
-              "ViewState": "AQIAAAsAAAAAAAAAAAAgwDcAAABdAAAA",
+              "Title": "playerMovement.cs",
+              "DocumentMoniker": "C:\\Users\\yulu7\\Downloads\\MIRA-main (1)\\MIRA-main\\mira\\Assets\\Scripts\\Roam\\playerMovement.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Roam\\playerMovement.cs",
+              "ToolTip": "C:\\Users\\yulu7\\Downloads\\MIRA-main (1)\\MIRA-main\\mira\\Assets\\Scripts\\Roam\\playerMovement.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Roam\\playerMovement.cs",
+              "ViewState": "AQIAAA4AAAAAAAAAAAAQwB4AAAAXAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-01T04:50:03.505Z",
+              "WhenOpened": "2024-08-02T02:48:40.604Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 4,
+              "Title": "skill.cs",
+              "DocumentMoniker": "C:\\Users\\yulu7\\Downloads\\MIRA-main (1)\\MIRA-main\\mira\\Assets\\Scripts\\partyMembers\\skill.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\partyMembers\\skill.cs",
+              "ToolTip": "C:\\Users\\yulu7\\Downloads\\MIRA-main (1)\\MIRA-main\\mira\\Assets\\Scripts\\partyMembers\\skill.cs",
+              "RelativeToolTip": "Assets\\Scripts\\partyMembers\\skill.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-02T02:43:43.107Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "skillBase.cs",
+              "DocumentMoniker": "C:\\Users\\yulu7\\Downloads\\MIRA-main (1)\\MIRA-main\\mira\\Assets\\Scripts\\partyMembers\\skillBase.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\partyMembers\\skillBase.cs",
+              "ToolTip": "C:\\Users\\yulu7\\Downloads\\MIRA-main (1)\\MIRA-main\\mira\\Assets\\Scripts\\partyMembers\\skillBase.cs",
+              "RelativeToolTip": "Assets\\Scripts\\partyMembers\\skillBase.cs",
+              "ViewState": "AQIAAAMAAAAAAAAAAAAAACQAAAAkAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-02T02:43:42.361Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
               "Title": "battleDialogueBox.cs",
               "DocumentMoniker": "C:\\Users\\yulu7\\Downloads\\MIRA-main (1)\\MIRA-main\\mira\\Assets\\Scripts\\battle\\battleDialogueBox.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\battle\\battleDialogueBox.cs",
@@ -69,21 +107,7 @@
               "RelativeToolTip": "Assets\\Scripts\\battle\\battleDialogueBox.cs",
               "ViewState": "AQIAAEQAAAAAAAAAAAAIwAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-01T04:19:05.095Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "battleUnit.cs",
-              "DocumentMoniker": "C:\\Users\\yulu7\\Downloads\\MIRA-main (1)\\MIRA-main\\mira\\Assets\\Scripts\\battle\\battleUnit.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\battle\\battleUnit.cs",
-              "ToolTip": "C:\\Users\\yulu7\\Downloads\\MIRA-main (1)\\MIRA-main\\mira\\Assets\\Scripts\\battle\\battleUnit.cs",
-              "RelativeToolTip": "Assets\\Scripts\\battle\\battleUnit.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAANAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-01T03:21:42.43Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-08-01T04:19:05.095Z"
             },
             {
               "$type": "Document",
@@ -93,10 +117,34 @@
               "RelativeDocumentMoniker": "Assets\\Scripts\\partyMembers\\partymember.cs",
               "ToolTip": "C:\\Users\\yulu7\\Downloads\\MIRA-main (1)\\MIRA-main\\mira\\Assets\\Scripts\\partyMembers\\partymember.cs",
               "RelativeToolTip": "Assets\\Scripts\\partyMembers\\partymember.cs",
-              "ViewState": "AQIAAI8AAAAAAAAAAAAowKMAAAAzAAAA",
+              "ViewState": "AQIAADsAAAAAAAAAAAAAAF8AAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-08-01T03:15:37.767Z",
               "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "ConditionDB.cs",
+              "DocumentMoniker": "C:\\Users\\yulu7\\Downloads\\MIRA-main (1)\\MIRA-main\\mira\\Assets\\Scripts\\data\\ConditionDB.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\data\\ConditionDB.cs",
+              "ToolTip": "C:\\Users\\yulu7\\Downloads\\MIRA-main (1)\\MIRA-main\\mira\\Assets\\Scripts\\data\\ConditionDB.cs",
+              "RelativeToolTip": "Assets\\Scripts\\data\\ConditionDB.cs",
+              "ViewState": "AQIAAAsAAAAAAAAAAAAgwDcAAABdAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-01T04:50:03.505Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "battleUnit.cs",
+              "DocumentMoniker": "C:\\Users\\yulu7\\Downloads\\MIRA-main (1)\\MIRA-main\\mira\\Assets\\Scripts\\battle\\battleUnit.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\battle\\battleUnit.cs",
+              "ToolTip": "C:\\Users\\yulu7\\Downloads\\MIRA-main (1)\\MIRA-main\\mira\\Assets\\Scripts\\battle\\battleUnit.cs",
+              "RelativeToolTip": "Assets\\Scripts\\battle\\battleUnit.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAANAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-01T03:21:42.43Z"
             }
           ]
         }

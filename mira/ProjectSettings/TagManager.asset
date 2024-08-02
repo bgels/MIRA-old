@@ -49,11 +49,11 @@ TagManager:
   - name: foreground
     uniqueID: 3994067113
     locked: 0
-  - name: foreground2
-    uniqueID: 2713743971
-    locked: 0
   - name: shader
     uniqueID: 3715557817
+    locked: 0
+  - name: invisWall
+    uniqueID: 2713743971
     locked: 0
   - name: encounterTiles
     uniqueID: 4172162777

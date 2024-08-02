@@ -19,6 +19,7 @@ MonoBehaviour:
   power: 2
   accuracy: 80
   sp: 13
+  priority: 0
   category: 2
   effects:
     boosts:

@@ -23,7 +23,7 @@ MonoBehaviour:
   attack: 30
   defense: 10
   determination: 15
-  speed: 0
+  speed: 50
   trait1: 6
   trait2: 1
   trait3: 4

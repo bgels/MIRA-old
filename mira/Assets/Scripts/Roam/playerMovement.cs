@@ -28,46 +28,46 @@ public class playerMovement : MonoBehaviour
 
         animator = gameObject.GetComponent<Animator>();
         speed = 5;
-        sprintSpeed = 4;
+        sprintSpeed = 3;
         encounterTimer = 0;
     }
 
     // Update is called once per frame
     public void HandleUpdate()
     {
+        float moveX = Input.GetAxisRaw("Horizontal");
+        float moveY = Input.GetAxisRaw("Vertical");
 
-            if (Input.GetKeyDown(KeyCode.LeftShift))
-            {
-            speed = 5 + sprintSpeed;
-            }
-            if (Input.GetKeyUp(KeyCode.LeftShift))
-            {
-            speed = 5;
-            }
-            
-            float moveX = Input.GetAxisRaw("Horizontal");
-            float moveY = Input.GetAxisRaw("Vertical");
-            if (moveX != 0)
-            {
-                moveY = 0;
-            }
+        if (moveX != 0)
+        {
+            moveY = 0; // Prioritize horizontal movement
+        }
 
+        if (moveX != 0 || moveY != 0)
+        {
             animator.SetFloat("mX", moveX);
             animator.SetFloat("mY", moveY);
-
             moveDir = new Vector2(moveX, moveY).normalized;
-            if(moveDir != Vector2.zero)
-            {
-                movingNow = true;
-            }
-            else
-            {
-                movingNow = false;
-            }
+            movingNow = true;
+        }
+        else
+        {
+            movingNow = false;
+            moveDir = Vector2.zero; // Reset moveDir to stop movement
+        }
+
         animator.SetBool("isMoving", movingNow);
 
+        // If not moving, keep the last movement direction
+        if (!movingNow)
+        {
+            animator.SetFloat("lastMX", animator.GetFloat("mX"));
+            animator.SetFloat("lastMY", animator.GetFloat("mY"));
+        }
     }
-    
+
+
+
     private void FixedUpdate()
     {
 
@@ -77,7 +77,12 @@ public class playerMovement : MonoBehaviour
 
     void move()
     {
-        rBody.velocity = new Vector2(moveDir.x * speed, moveDir.y * speed);
+        float currentSpeed = speed;
+        if(Input.GetKey(KeyCode.LeftShift))
+        {
+            currentSpeed += sprintSpeed;
+        }
+        rBody.velocity = new Vector2(moveDir.x * currentSpeed, moveDir.y * currentSpeed);
     }
 
     private void OnTriggerStay2D(Collider2D collision)

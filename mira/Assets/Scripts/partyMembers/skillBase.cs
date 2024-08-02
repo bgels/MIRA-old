@@ -17,6 +17,9 @@ public class skillBase : ScriptableObject
     [SerializeField] int power;
     [SerializeField] int accuracy;
     [SerializeField] int sp;
+    [SerializeField] int priority;
+
+
     [SerializeField] skillCategory category;
     [SerializeField] skillEffects effects;
     [SerializeField] List<SecondaryEffects> secondaries;
@@ -31,7 +34,7 @@ public class skillBase : ScriptableObject
     public int Power => power;
     public int Accuracy => accuracy;
     public int Sp => sp;
-
+    public int Priority => priority;
     public bool AlwaysHit => alwaysHit;
     public skillCategory Category => category;
     public skillEffects Effects => effects;

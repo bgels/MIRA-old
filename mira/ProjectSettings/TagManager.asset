@@ -13,9 +13,9 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
-  - 
+  - solidObjects
+  - encounterGrass
+  - interactable
   - 
   - 
   - 

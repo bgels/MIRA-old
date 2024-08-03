@@ -1,20 +1,21 @@
-﻿<Properties>
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/partyMembers/partymember.cs">
+﻿<Properties StartupConfiguration="{FA01C5AB-7ACA-8042-7BC3-6EBB6D38B57F}|">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Roam/playerMovement.cs">
     <Files>
       <File FileName="Assets/Scripts/partyMembers/partymember.cs" Line="242" Column="191" />
-      <File FileName="Assets/Scripts/partyMembers/partymemberBase.cs" Line="100" Column="12" />
-      <File FileName="Assets/Scripts/battle/battleUnit.cs" Line="45" Column="6" />
-      <File FileName="Assets/Scripts/battle/battleHud.cs" Line="61" Column="10" />
-      <File FileName="Assets/Scripts/data/ConditionDB.cs" Line="32" Column="14" />
-      <File FileName="Assets/Scripts/partyMembers/Condition.cs" Line="15" Column="40" />
+      <File FileName="Assets/Scripts/partyMembers/partymemberBase.cs" />
+      <File FileName="Assets/Scripts/battle/battleUnit.cs" />
+      <File FileName="Assets/Scripts/battle/battleHud.cs" />
+      <File FileName="Assets/Scripts/data/ConditionDB.cs" />
+      <File FileName="Assets/Scripts/partyMembers/Condition.cs" />
       <File FileName="Assets/Scripts/partyMembers/skill.cs" />
-      <File FileName="Assets/Scripts/GameController.cs" Line="33" Column="1" />
-      <File FileName="Assets/Scripts/partyMembers/skillScript.cs" Line="7" Column="1" />
+      <File FileName="Assets/Scripts/GameController.cs" />
+      <File FileName="Assets/Scripts/partyMembers/skillScript.cs" />
+      <File FileName="Assets/Scripts/Roam/playerMovement.cs" Line="86" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Release" />
-  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="2befbe0f-0f99-4133-8a50-8e3ba7edbbc7" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="4b7b1ee7-05c4-4740-964f-4a9b21550a87" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>

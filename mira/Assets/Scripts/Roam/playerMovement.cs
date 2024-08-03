@@ -9,6 +9,8 @@ public class playerMovement : MonoBehaviour
     public float sprintSpeed;
     private Vector2 moveDir;
 
+    public LayerMask interactableLayer;
+
     public Rigidbody2D rBody;
 
     public Animator animator;
@@ -64,9 +66,25 @@ public class playerMovement : MonoBehaviour
             animator.SetFloat("lastMX", animator.GetFloat("mX"));
             animator.SetFloat("lastMY", animator.GetFloat("mY"));
         }
+        if (Input.GetKeyDown(KeyCode.Z))
+        {
+            Interact();
+        }
     }
 
+    void Interact()
+    {
+        var facingDir = new Vector3(animator.GetFloat("mX"), animator.GetFloat("mY"));
+        var interactPos = transform.position += facingDir;
 
+        //Debug.DrawLine(transform.position, interactPos, Color.green, .5f);
+        var collider = Physics2D.OverlapCircle(interactPos, .3f, interactableLayer);
+        if(collider!= null)
+        {
+            Debug.Log("Npc?");
+        }
+
+    }
 
     private void FixedUpdate()
     {
@@ -100,6 +118,6 @@ public class playerMovement : MonoBehaviour
                 OnEncountered();
             }
         }
-    }
+    }   
 
 }   

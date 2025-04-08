@@ -1,4 +1,4 @@
-W5 Sia project files
+W5 Sia Core project files
 
 "mira the game omg"
 
